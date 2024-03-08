@@ -45,17 +45,24 @@ public class Main {
             temp.add(tel);
             telSptav.put(name,temp);
         }
-//        try {
-//            System.out.println(telSptav.get(name));
-//            telSptav.get(name).add(tel);
-//            System.out.println(telSptav.get(name));
-//        }
-//        catch (Exception e){
-//            ArrayList<String> temp = new ArrayList<>();
-//            temp.add(tel);
-//            telSptav.put(name,temp);
-//        }
-
+    }
+    static void removeChel (HashMap<String, ArrayList> telSptav){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите имя человека");
+        String name = scan.nextLine();
+        if (telSptav.containsKey(name)){
+            telSptav.remove(name);
+        }
+        else System.out.println("Проверьте правильность имени");
+    }
+    static  void  findChel (HashMap<String, ArrayList> telSptav){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите имя человека");
+        String name = scan.nextLine();
+        if (telSptav.containsKey(name)){
+            System.out.println(name +" "+telSptav.get(name));
+        }
+        else System.out.println("Проверьте правильность имени");
     }
     static  void prinSprav (HashMap<String, ArrayList> telSptav){
 
@@ -79,8 +86,10 @@ public class Main {
             System.out.println("Что хотите сделать?");
             System.out.println("1: Внести тестовые значения");
             System.out.println("2: Внести свои значения");
-            System.out.println("3: ");
+            System.out.println("3: Удалить челоека");
+            System.out.println("4: Найти человека");
             System.out.println("0: Вывести на экран");
+            System.out.println("q: Выйти");
             String input = scan.nextLine();
             if (input.equals("q")) break;
             switch (input){
@@ -94,7 +103,10 @@ public class Main {
                     addNumber(telSprav);
                     break;
                 case ("3"):
-
+                    removeChel(telSprav);
+                    break;
+                case ("4"):
+                    findChel(telSprav);
                     break;
 
             }
